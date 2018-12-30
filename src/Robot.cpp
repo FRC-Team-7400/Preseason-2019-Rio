@@ -23,8 +23,9 @@ void Robot::TeleopInit()
 
 void Robot::TeleopPeriodic()
 {
-	if (m_control.Periodic())
+	if (m_control.Periodic()) {
 		m_swerve.Drive(m_control.X(), m_control.Y(), m_control.Z(), m_gyro.Yaw(), m_control.RotationPoint());
+	}
 
 	m_pneumatics.Grab(m_control.Grab());
 
